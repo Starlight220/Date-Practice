@@ -4,7 +4,14 @@ public class Date {
   private int day;
 
   public Date(int day, int month, long year){
-    //you fill here
+    if(day < 31 && month < 13){
+      this.day = day;
+      this.month = month;
+      this.year = year;
+    }
+    else{
+      System.out.println("Error");
+    }
   }
 
   public boolean equals(Date other) {
@@ -23,9 +30,20 @@ public class Date {
   }
   public int getMonth(){
     return this.month;
-
-  }  public long getYear(){
+  }
+  
+  public long getYear(){
     return this.year;
+  }
+
+  public boolean isBefore(Date other) {
+    boolean answer = false;
+    if (this.getYear()<other.getYear()) {answer = true}
+    else if (this.getYear()==other.getYear() && this.getMonth()<other.getMonth()){answer = true}
+    else if (this.getYear()==other.getYear() && this.getMonth()==other.getMonth() && this.getDay()<other.getDay()){answer = true}
+    return answer;
+
+
   }
 
   public void setMonth(int month){
