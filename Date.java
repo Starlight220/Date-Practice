@@ -8,20 +8,40 @@ public class Date {
   }
 
   public boolean equals(Date other) {
-    return false; //you write here (this == other)
+    boolean day_bool = this.day == other.day;
+    boolean month_bool = this.month == other.month;
+    boolean year_bool = this.year == other.year;
+    return day_bool && month_bool && year_bool;
   }
 
   public String toString(){
-    return null; //you write here
+    return String.format("%d/%d/%d", this.day, this.month, this.year);
   }
 
-  public int getDay(){}
-  public int getMonth(){}
-  public long getYear(){}
+  public int getDay(){
+    return this.day;
+  }
+  public int getMonth(){
+    return this.month;
 
-  public boolean isBefore(Date other){  }
+  }  public long getYear(){
+    return this.year;
+  }
 
+  public void setMonth(int month){
+    if (month > 0 && month <= 12) {
+      this.month = month;
+    }
+  }
+  public void setDay(int day){
+    if (day > 0 && day <= 30){
+      this.day = day;
+    }
+  }
 
-  //setters
+  public void setYear(int year) {
+    if (year > 0) {
+      this.day = year;
+   }
 
 }
